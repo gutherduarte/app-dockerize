@@ -2,7 +2,7 @@ import axios from "axios";
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const GetProducto = () => {
-  const baseUrl = `${apiUrl}/producto`;
+  const baseUrl = `${apiUrl}/api/producto`;
   return fetch(baseUrl)
     .then((res) => res.json())
     .then((response) => {
@@ -25,7 +25,7 @@ function request(Producto, method) {
 }
 
 export async function PostProduto(Producto) {
-  const baseUrl = `${apiUrl}/producto`;
+  const baseUrl = `${apiUrl}/api/producto`;
   console.log(Producto);
   await axios
     .post(baseUrl, Producto)
@@ -34,7 +34,7 @@ export async function PostProduto(Producto) {
 }
 
 export async function PutProducto(Producto = {}, ID) {
-  const baseUrl = `${apiUrl}/producto/ ${ID}`;
+  const baseUrl = `${apiUrl}/api/producto/ ${ID}`;
   const response = await fetch(baseUrl, {
     method: "POST",
     mode: "cors",
@@ -51,7 +51,7 @@ export async function PutProducto(Producto = {}, ID) {
 }
 
 export async function DeleteProducto(ID) {
-  const baseUrl = `${apiUrl}/producto/${ID}`;
+  const baseUrl = `${apiUrl}/api/producto/${ID}`;
   const response = await fetch(baseUrl, {
     method: "Delete",
   });
