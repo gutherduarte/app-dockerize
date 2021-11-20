@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  web_dev:
+    build: ./frontend-dockerize/
+    ports:
+      - "9001:80"
+    depends_on:
+      - api_dev
+  api_dev:
+    build: ./backend-dockerize/
+    ports:
+      - "8997:80"
+    environment:
+      SERVER: "sqlserver"
+      PORT: 1433
+      DATABASE: "AppDbContext"
+      USERNAME: "sa"
+      PASSWORD: "Desarrollo123*"
+      INTEGRATED_SECURITY: "false"
+      TRUST_SERVER_CERTIFICATE: "true"
+    depends_on:
+      - devdb
+    links:
+      - "devdb"
+  devdb:
+    image: "mcr.microsoft.com/mssql/server"
+    user: "0:0"
+    hostname: "sqlserver"
+    environment:
+      SA_PASSWORD: "Desarrollo123*"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - data:/var/opt/mssql/data
+volumes:
+  data:

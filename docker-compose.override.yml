@@ -5,7 +5,7 @@ services:
       REACT_APP_API_URL: "aquívaurldeapi"
   web_production_2:
     environment:
-      REACT_APP_API_URL: "aquívaurldeapi"
+      REACT_APP_API_URL: "aquívaurldeapi_2"
   web_production_buy:
     environment:
-      REACT_APP_API_URL: "aquívaurldeapi"
+      REACT_APP_API_URL: "aquívaurldeapi_buy"
